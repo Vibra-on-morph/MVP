@@ -17,7 +17,12 @@ interface VideoCardProps {
 export function VideoCard({ video, isActive, onLike, onShare }: VideoCardProps) {
   const [isPlaying, setIsPlaying] = useState(isActive);
   const [isMuted, setIsMuted] = useState(true);
+  const [imageError, setImageError] = useState(false);
 
+  // Update playing state when isActive changes
+  useEffect(() => {
+    setIsPlaying(isActive);
+  }, [isActive]);
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
   };
@@ -26,17 +31,30 @@ export function VideoCard({ video, isActive, onLike, onShare }: VideoCardProps) 
     setIsMuted(!isMuted);
   };
 
+  const handleImageError = () => {
+    setImageError(true);
+  };
   return (
     <div className="relative w-full h-full bg-black flex items-center justify-center">
       {/* Video Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/60" />
       
       {/* Mock Video - Using Image as Placeholder */}
-      <img 
-        src={video.thumbnailUrl} 
-        alt={video.title}
-        className="w-full h-full object-cover"
-      />
+      {!imageError ? (
+        <img 
+          src={video.thumbnailUrl} 
+          alt={video.title}
+          className="w-full h-full object-cover"
+          onError={handleImageError}
+        />
+      ) : (
+        <div className="w-full h-full bg-gradient-to-br from-purple-900 to-purple-700 flex items-center justify-center">
+          <div className="text-center text-white">
+            <div className="text-6xl mb-4">🎬</div>
+            <p className="text-lg font-semibold">{video.title}</p>
+          </div>
+        </div>
+      )}
       
       {/* Play/Pause Overlay */}
       <div className="absolute inset-0 flex items-center justify-center">

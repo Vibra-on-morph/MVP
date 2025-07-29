@@ -20,24 +20,46 @@ export function Providers({ children }: { children: React.ReactNode }) {
   }, []);
 
   const login = async (email: string, password: string) => {
-    // Mock login - find user by email
-    const foundUser = mockUsers.find(u => u.email === email);
+    // Validate inputs
+    if (!email || !password) {
+      throw new Error('Email and password are required');
+    }
+
+    // Mock login - find user by email (case insensitive)
+    const foundUser = mockUsers.find(u => u.email.toLowerCase() === email.toLowerCase());
     if (foundUser) {
+      // In a real app, you'd verify the password hash here
       setUser(foundUser);
       localStorage.setItem('vibra_user', JSON.stringify(foundUser));
       return foundUser;
     }
-    throw new Error('Invalid credentials');
+    throw new Error('Invalid email or password');
   };
 
   const loginWithWallet = async (address: string) => {
+    if (!address) {
+      throw new Error('Wallet address is required');
+    }
+
     // Mock wallet login
-    const walletUser = mockUsers.find(u => u.walletAddress === address) || {
-      ...mockUsers[0],
-      id: 'wallet-' + Date.now(),
-      walletAddress: address,
-      email: '',
-    };
+    let walletUser = mockUsers.find(u => u.walletAddress === address);
+    
+    if (!walletUser) {
+      // Create new user for wallet login
+      walletUser = {
+        ...mockUsers[0],
+        id: 'wallet-' + Date.now(),
+        username: `user_${address.slice(-6)}`,
+        walletAddress: address,
+        email: '',
+        followers: 0,
+        following: 0,
+        totalEarned: 0,
+        walletBalance: 0,
+        createdAt: new Date(),
+      };
+    }
+    
     setUser(walletUser);
     localStorage.setItem('vibra_user', JSON.stringify(walletUser));
     return walletUser;
@@ -49,11 +71,26 @@ export function Providers({ children }: { children: React.ReactNode }) {
   };
 
   const register = async (email: string, password: string, username: string) => {
+    // Validate inputs
+    if (!email || !password || !username) {
+      throw new Error('All fields are required');
+    }
+
+    // Check if user already exists
+    const existingUser = mockUsers.find(u => 
+      u.email.toLowerCase() === email.toLowerCase() || 
+      u.username.toLowerCase() === username.toLowerCase()
+    );
+    
+    if (existingUser) {
+      throw new Error('User with this email or username already exists');
+    }
+
     // Mock registration
     const newUser: User = {
       id: 'user-' + Date.now(),
-      username,
-      email,
+      username: username.trim(),
+      email: email.toLowerCase().trim(),
       avatar: `https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400`,
       role: 'user',
       verified: false,
