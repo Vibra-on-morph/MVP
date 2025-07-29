@@ -126,5 +126,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Built with ❤️ for the crypto community by Vibra on Morph. Create. Engage. Earn. Repeat.! 
+Built with ❤️ for the crypto community by Vibra on Morph. Create. Engage. Earn. Repeat.!
 </ootAction>
