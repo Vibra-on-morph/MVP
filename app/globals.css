@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 10, 10, 15;
+  --neon-purple: #6A00FF;
+  --neon-purple-light: #A65AFF;
+  --neon-yellow: #FFD700;
+  --neon-orange: #FF6A00;
+}
+
+@layer base {
+  :root {
+    --background: 225 15% 6%;
+    --foreground: 0 0% 98%;
+    --card: 225 15% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 225 15% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 258 100% 50%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 225 15% 14%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 225 15% 12%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 45 100% 60%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 225 15% 16%;
+    --input: 225 15% 14%;
+    --ring: 258 100% 60%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: linear-gradient(135deg, #0A0A0F 0%, #1A0B2E 100%);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent;
+  }
+  
+  .neon-border {
+    border: 1px solid transparent;
+    background: linear-gradient(135deg, #6A00FF, #A65AFF) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: subtract;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: subtract;
+  }
+  
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(106, 0, 255, 0.3);
+  }
+  
+  .video-card {
+    @apply bg-card/80 backdrop-blur-sm rounded-2xl border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300;
+  }
+  
+  .engagement-button {
+    @apply flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 hover:bg-secondary transition-colors duration-200;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #6A00FF, #A65AFF);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #A65AFF, #6A00FF);
+}
