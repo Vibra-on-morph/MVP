@@ -1,44 +1,25 @@
-# Vibra - Crypto-Native Short-Form Video Social App
+# Vibra — The Crypto-Native Social Media App
 
-Vibra is a TikTok-style social platform where users earn crypto rewards for creating and engaging with short-form videos. Built with Next.js, React, and Tailwind CSS.
+Vibra is a crypto-native social platform where anyone can create, engage, and earn.
+Think TikTok, but your likes, comments, and shares pay you — powered by the Vibra on Morph.
 
-## 🚀 Features
+
+
+## What Vibra Offers
 
 ### Core Platform Features
-- **Multi-role System**: Users, Creators, Moderators, and Admins
-- **Authentication**: Email/password and crypto wallet (MetaMask, WalletConnect)
-- **Video Feed**: TikTok-style vertical scrolling video feed
-- **Content Creation**: Video upload with title, description, and tags
-- **Engagement**: Like, comment, share, and follow functionality
-- **Discovery**: Search videos, trending content, and creator profiles
+- **Create & Earn**:  Post short videos. Build your audience. Earn $VIBRA tokens for engagement.
+- **Watch & Engage**: Scroll endlessly through a sleek short-video feed. Like, comment, share — and get rewarded.
+- **Crypto-First Wallet**: Connect your wallet (MetaMask, WalletConnect). Withdraw your rewards on-chain.
+- **Multi-Role**: Users, Creators, Moderators, Admins — with tools for each.
+- **Safe & Fair**:Community reporting, moderation dashboard, and clear reward logic.
 
-### Crypto Integration
-- **Reward System**: Earn VIBRA tokens for engagement (likes, comments, shares)
-- **In-app Wallet**: View balance, transaction history, and withdraw funds
-- **Blockchain**: Ready for Solana or EVM integration
-- **Withdrawal Flow**: On-chain payouts to connected wallets
-
-### Moderation & Administration
-- **Content Moderation**: Report system for inappropriate content
-- **Moderator Dashboard**: Review reports, manage flagged content
-- **Admin Dashboard**: Platform analytics, user management, reward configuration
-- **Safety Features**: Community guidelines and automated content scanning
-
-### Design & UX
-- **Dark Mode**: Neon purple gradient theme with yellow/orange accents
-- **Mobile-First**: Responsive design optimized for all devices
-- **Modern UI**: Sleek cards, gradients, and micro-interactions
-- **Accessibility**: Proper contrast ratios and keyboard navigation
-
-## 🛠 Tech Stack
-
-- **Frontend**: Next.js 13+ with App Directory, React 18, TypeScript
-- **Styling**: Tailwind CSS with custom design system
-- **UI Components**: Radix UI primitives with shadcn/ui
-- **Icons**: Lucide React
-- **State Management**: React Context API
-- **Backend**: Ready for Supabase or custom Node.js API
-- **Blockchain**: Prepared for Solana/Ethereum integration
+### Current Status = MVP Stage
+- Core Next.js, React, and Tailwind CSS codebase ready.
+- User auth flow integrated — email + crypto wallet.
+- Video upload flow scaffolded.
+- Reward system logic drafted.
+- Admin & Moderator dashboards planned.
 
 ## 📁 Project Structure
 
@@ -97,94 +78,16 @@ vibra/
 4. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-### Sample Accounts
-
-Try these demo accounts:
-
-**Creator Account:**
-- Email: `king@example.com`
-- Password: `password123`
-- Role: Creator with high earnings
-
-**Moderator Account:**
-- Email: `sarah@vibra.com`
-- Password: `password123`
-- Role: Moderator with dashboard access
-
-**Admin Account:**
-- Email: `alex@vibra.com`
-- Password: `password123`
-- Role: Full admin access
-
-## 🎨 Design System
-
-### Color Palette
-- **Primary**: Purple gradient (#6A00FF → #A65AFF)
-- **Accent**: Yellow (#FFD700), Orange (#FF6A00)
-- **Background**: Dark theme with gradient overlays
-- **Text**: High contrast white/muted for readability
-
-### Typography
-- **Primary**: Inter (body text)
-- **Accent**: Orbitron (logos, headings)
-- **Weights**: 400, 500, 600, 700
-
-### Components
-- **Cards**: Rounded corners with gradient borders
-- **Buttons**: Gradient backgrounds with hover effects
-- **Inputs**: Dark theme with purple focus states
-- **Avatars**: Circular with verification badges
-
-## 🔧 Configuration
-
-### Environment Variables (Future)
-```env
-# Database
-DATABASE_URL=your_database_url
-
-# Blockchain
-NEXT_PUBLIC_SOLANA_RPC_URL=your_solana_rpc
-NEXT_PUBLIC_CONTRACT_ADDRESS=your_contract_address
-
-# Storage
-AWS_S3_BUCKET=your_s3_bucket
-AWS_ACCESS_KEY_ID=your_access_key
-AWS_SECRET_ACCESS_KEY=your_secret_key
-
-# External APIs
-SENDGRID_API_KEY=your_sendgrid_key
-TWILIO_ACCOUNT_SID=your_twilio_sid
+### Next Milestones
+ Finalize video storage (Cloudflare or S3)
+ Hook up smart contract for $VIBRA rewards (Thirdweb or custom)
+ Integrate on-chain withdrawal flow with MORPH and VIBRA Token
+ QA test multi-role dashboards
+ Deploy live
+ 
 ```
 
-### Blockchain Integration
-
-The app is prepared for blockchain integration:
-
-1. **Smart Contract**: Create token contract for VIBRA rewards
-2. **Wallet Connection**: MetaMask and WalletConnect ready
-3. **Transaction Flow**: Reward distribution and withdrawal logic
-4. **Network Support**: Solana or Ethereum/Polygon
-
-### Sample Smart Contract (Solana)
-```rust
-// Basic token program for VIBRA rewards
-use anchor_lang::prelude::*;
-
-#[program]
-pub mod vibra_rewards {
-    use super::*;
-    
-    pub fn distribute_reward(
-        ctx: Context<DistributeReward>,
-        amount: u64
-    ) -> Result<()> {
-        // Reward distribution logic
-        Ok(())
-    }
-}
-```
-
-## 🚀 Deployment
+## Deployment
 
 ### Build for Production
 ```bash
@@ -202,7 +105,7 @@ npm run build
 # Upload dist folder to Netlify
 ```
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create feature branch (`git checkout -b feature/amazing-feature`)
@@ -214,21 +117,14 @@ npm run build
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🔗 Links
+## 🔗 Connect with us
 
-- **Demo**: [Live Demo URL]
-- **Documentation**: [Docs URL]
-- **Discord**: [Community Discord]
-- **Twitter**: [@VibraApp]
+- **Demo**: coming soon
+- **Twitter(X)**: https://x.com/vibraonmorph
+- **Telegram**: https://t.me/vibraonmorph
 
-## 🆘 Support
-
-For support and questions:
-- Create an issue on GitHub
-- Join our Discord community
-- Email: support@vibra.app
 
 ---
 
-Built with ❤️ for the crypto community. Start earning rewards for your creativity today! 🎬✨
+Built with ❤️ for the crypto community by Vibra on Morph. Create. Engage. Earn. Repeat.! 
 </ootAction>
