@@ -180,7 +180,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
                   setFormData({ ...formData, email: e.target.value });
                   clearError();
                 }}
-                className="bg-secondary border-secondary-foreground/20 focus:border-purple-400"
+                className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:bg-gray-700"
                 required
               />
             </div>
@@ -194,7 +194,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
                   setFormData({ ...formData, password: e.target.value });
                   clearError();
                 }}
-                className="bg-secondary border-secondary-foreground/20 focus:border-purple-400 pr-10"
+                className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:bg-gray-700 pr-10"
                 required
               />
               <button
