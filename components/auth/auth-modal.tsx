@@ -195,7 +195,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
           <div className="space-y-4">
             <Button
               onClick={connectWallet}
-              className="w-full bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium py-3"
               disabled={loading}
             >
               {loading ? (
@@ -209,7 +209,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
             <Button
               onClick={connectWallet}
               variant="outline"
-              className="w-full border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-black disabled:opacity-50 disabled:cursor-not-allowed py-3"
               disabled={loading}
             >
               <Wallet className="w-4 h-4 mr-2" />
@@ -219,8 +219,12 @@ export function AuthModal({ onClose }: AuthModalProps) {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             {mode === 'register' && (
-              <div>
+              <div className="space-y-2">
+                <label htmlFor="username" className="block text-sm font-medium text-white">
+                  Username
+                </label>
                 <Input
+                  id="username"
                   type="text"
                   placeholder="Username"
                   value={formData.username}
@@ -228,7 +232,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
                     setFormData({ ...formData, username: e.target.value });
                     clearError();
                   }}
-                  className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:bg-gray-700 transition-colors"
+                  className="w-full h-12 px-4 bg-gray-800 border-2 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:bg-gray-700 transition-colors rounded-lg"
                   required
                   minLength={3}
                   maxLength={20}
@@ -237,8 +241,12 @@ export function AuthModal({ onClose }: AuthModalProps) {
               </div>
             )}
             
-            <div>
+            <div className="space-y-2">
+              <label htmlFor="email" className="block text-sm font-medium text-white">
+                Email Address
+              </label>
               <Input
+                id="email"
                 type="email"
                 placeholder="Email address"
                 value={formData.email}
@@ -246,14 +254,18 @@ export function AuthModal({ onClose }: AuthModalProps) {
                   setFormData({ ...formData, email: e.target.value });
                   clearError();
                 }}
-                className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:bg-gray-700 transition-colors"
+                className="w-full h-12 px-4 bg-gray-800 border-2 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:bg-gray-700 transition-colors rounded-lg"
                 required
                 disabled={loading}
               />
             </div>
             
-            <div className="relative">
+            <div className="relative space-y-2">
+              <label htmlFor="password" className="block text-sm font-medium text-white">
+                Password
+              </label>
               <Input
+                id="password"
                 type={showPassword ? 'text' : 'password'}
                 placeholder="Password"
                 value={formData.password}
@@ -261,7 +273,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
                   setFormData({ ...formData, password: e.target.value });
                   clearError();
                 }}
-                className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:bg-gray-700 pr-10 transition-colors"
+                className="w-full h-12 px-4 pr-12 bg-gray-800 border-2 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:bg-gray-700 transition-colors rounded-lg"
                 required
                 minLength={6}
                 disabled={loading}
@@ -279,7 +291,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
 
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              className="w-full h-12 bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all text-white font-medium rounded-lg"
               disabled={loading}
             >
               {loading ? (
