@@ -232,7 +232,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
                     setFormData({ ...formData, username: e.target.value });
                     clearError();
                   }}
-                  className="w-full h-12 px-4 bg-gray-800 border-2 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:bg-gray-700 transition-colors rounded-lg"
+                  className="w-full h-12 px-4 bg-purple-900/30 border-2 border-purple-400 text-white placeholder:text-purple-200 focus:border-purple-300 focus:bg-purple-800/40 transition-all duration-200 rounded-lg shadow-lg"
                   required
                   minLength={3}
                   maxLength={20}
@@ -254,7 +254,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
                   setFormData({ ...formData, email: e.target.value });
                   clearError();
                 }}
-                className="w-full h-12 px-4 bg-gray-800 border-2 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:bg-gray-700 transition-colors rounded-lg"
+                className="w-full h-12 px-4 bg-purple-900/30 border-2 border-purple-400 text-white placeholder:text-purple-200 focus:border-purple-300 focus:bg-purple-800/40 transition-all duration-200 rounded-lg shadow-lg"
                 required
                 disabled={loading}
               />
@@ -273,7 +273,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
                   setFormData({ ...formData, password: e.target.value });
                   clearError();
                 }}
-                className="w-full h-12 px-4 pr-12 bg-gray-800 border-2 border-gray-600 text-white placeholder:text-gray-400 focus:border-purple-400 focus:bg-gray-700 transition-colors rounded-lg"
+                className="w-full h-12 px-4 pr-12 bg-purple-900/30 border-2 border-purple-400 text-white placeholder:text-purple-200 focus:border-purple-300 focus:bg-purple-800/40 transition-all duration-200 rounded-lg shadow-lg"
                 required
                 minLength={6}
                 disabled={loading}
@@ -281,7 +281,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                className="absolute right-3 top-9 text-purple-300 hover:text-white transition-colors"
                 disabled={loading}
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
               >
