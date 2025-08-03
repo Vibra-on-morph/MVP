@@ -31,6 +31,10 @@ export function LandingPage() {
               <Play className="w-5 h-5 mr-2" />
               Start Earning
             </Button>
+            <div className="text-center text-sm text-muted-foreground">
+              <p>Demo Login: <code className="bg-purple-900/30 px-2 py-1 rounded">demo@vibra.com</code></p>
+              <p>Password: <code className="bg-purple-900/30 px-2 py-1 rounded">any password</code></p>
+            </div>
             <Button 
               size="lg" 
               variant="outline" 

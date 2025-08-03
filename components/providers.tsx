@@ -25,10 +25,27 @@ export function Providers({ children }: { children: React.ReactNode }) {
       throw new Error('Email and password are required');
     }
 
-    // Mock login - find user by email (case insensitive)
-    const foundUser = mockUsers.find(u => u.email.toLowerCase() === email.toLowerCase());
-    if (foundUser) {
-      // In a real app, you'd verify the password hash here
+    // For demo purposes, allow any email/password combination
+    // In production, this would validate against your backend
+    let foundUser = mockUsers.find(u => u.email.toLowerCase() === email.toLowerCase());
+    
+    if (foundUser || email.includes('@')) {
+      // If user doesn't exist, create a demo user
+      if (!foundUser) {
+        foundUser = {
+          id: 'demo-' + Date.now(),
+          username: email.split('@')[0],
+          email: email.toLowerCase(),
+          avatar: 'https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400',
+          role: 'user',
+          verified: false,
+          followers: 0,
+          following: 0,
+          totalEarned: 0,
+          walletBalance: 0,
+          createdAt: new Date(),
+        };
+      }
       setUser(foundUser);
       localStorage.setItem('vibra_user', JSON.stringify(foundUser));
       return foundUser;

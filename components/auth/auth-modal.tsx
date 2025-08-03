@@ -57,7 +57,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateForm()) {
+    if (authType === 'email' && !validateForm()) {
       return;
     }
 
@@ -66,9 +66,7 @@ export function AuthModal({ onClose }: AuthModalProps) {
 
     try {
       if (authType === 'wallet') {
-        // Mock wallet connection with better error handling
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        await loginWithWallet('0x1234567890abcdef1234567890abcdef12345678');
+        await connectWallet();
       } else {
         if (mode === 'login') {
           await login(formData.email.trim(), formData.password);
@@ -76,7 +74,6 @@ export function AuthModal({ onClose }: AuthModalProps) {
           await register(formData.email.trim(), formData.password, formData.username.trim());
         }
       }
-      onClose();
     } catch (error) {
       console.error('Authentication error:', error);
       setError(error instanceof Error ? error.message : 'Authentication failed. Please try again.');
@@ -89,8 +86,8 @@ export function AuthModal({ onClose }: AuthModalProps) {
     setLoading(true);
     setError('');
     try {
-      // Mock wallet connection with realistic delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Mock wallet connection - in production, use actual wallet connection
+      await new Promise(resolve => setTimeout(resolve, 1000));
       await loginWithWallet('0x1234567890abcdef1234567890abcdef12345678');
       onClose();
     } catch (error) {
