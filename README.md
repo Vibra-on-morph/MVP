@@ -1,9 +1,39 @@
 # Vibra — The Crypto-Native Social Media App
 
 Vibra is a crypto-native social platform where anyone can create, engage, and earn.
-Think TikTok, but your likes, comments, and shares pay you — powered by the Vibra on Morph.
+Think TikTok, but your likes, comments, and shares pay you — powered by the Vibra token on Morph L2.
 
+## 🚀 Live Demo
 
+- **Demo URL**: [Coming Soon]
+- **Demo Credentials**: 
+  - Email: `demo@vibra.com`
+  - Password: `password` (or any password)
+- **Testnet**: Morph Holesky
+- **Block Explorer**: https://explorer-holesky.morphl2.io/
+
+## ✨ Features
+
+### 🎥 Core Platform
+- **Short-Form Videos**: TikTok-style vertical video feed
+- **Crypto Rewards**: Earn VIBRA tokens for engagement
+- **Web3 Wallet**: Connect MetaMask, WalletConnect
+- **Multi-Role System**: Users, Creators, Moderators, Admins
+- **Content Moderation**: Community reporting and admin tools
+
+### 🔗 Blockchain Integration
+- **Morph L2 Network**: Fast, low-cost transactions
+- **Smart Contracts**: ERC20 token, NFT videos, reward pools
+- **Decentralized**: On-chain reward distribution
+- **Testnet Ready**: Full Morph Holesky integration
+
+## 🛠 Tech Stack
+
+- **Frontend**: Next.js 13, React, TypeScript, Tailwind CSS
+- **UI Components**: Radix UI, Shadcn/ui, Lucide Icons
+- **Blockchain**: Wagmi, Viem, RainbowKit, Hardhat
+- **Network**: Morph Holesky Testnet
+- **Styling**: CSS Variables, Dark Theme, Responsive Design
 
 ## What Vibra Offers
 
@@ -127,4 +157,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 Built with ❤️ for the crypto community by Vibra on Morph. Create. Engage. Earn. Repeat.!
-</ootAction>
