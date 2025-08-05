@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { User, Bell, Shield, Palette, Wallet, Key, Smartphone, Mail } from 'lucide-react';
 import { useAuth } from '@/components/providers';
 import { Card } from '@/components/ui/card';
@@ -70,7 +71,7 @@ export default function SettingsPage() {
                   {/* Avatar */}
                   <div className="flex items-center gap-6">
                     <Avatar className="w-20 h-20">
-                      <img src={user.avatar} alt={user.username} />
+                      <Image src={user.avatar} alt={user.username} width={80} height={80} />
                     </Avatar>
                     <div>
                       <Button variant="outline" className="mb-2">

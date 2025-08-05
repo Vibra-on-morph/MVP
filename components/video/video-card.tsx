@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Heart, MessageCircle, Share2, Play, Pause, Volume2, VolumeX, MoreHorizontal } from 'lucide-react';
 import { Avatar } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
@@ -41,10 +42,11 @@ export function VideoCard({ video, isActive, onLike, onShare }: VideoCardProps) 
       
       {/* Mock Video - Using Image as Placeholder */}
       {!imageError ? (
-        <img 
+        <Image
           src={video.thumbnailUrl} 
           alt={video.title}
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
           onError={handleImageError}
         />
       ) : (
@@ -77,7 +79,7 @@ export function VideoCard({ video, isActive, onLike, onShare }: VideoCardProps) 
           <div className="flex-1 pr-4">
             <div className="flex items-center gap-3 mb-3">
               <Avatar className="w-10 h-10 border-2 border-white">
-                <img src={video.avatar} alt={video.username} />
+               <Image src={video.avatar} alt={video.username} width={40} height={40} />
               </Avatar>
               <div>
                 <div className="flex items-center gap-2">

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Edit, MapPin, Calendar, Link as LinkIcon, Users, Heart, Eye } from 'lucide-react';
 import { useAuth } from '@/components/providers';
 import { Button } from '@/components/ui/button';
@@ -35,7 +36,7 @@ export default function ProfilePage() {
               {/* Avatar */}
               <div className="relative">
                 <Avatar className="w-32 h-32 border-4 border-background">
-                  <img src={user.avatar} alt={user.username} />
+                  <Image src={user.avatar} alt={user.username} width={128} height={128} />
                 </Avatar>
                 {user.verified && (
                   <div className="absolute -top-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
@@ -180,10 +181,11 @@ export default function ProfilePage() {
             {activeTab === 'videos' && userVideos.map((video) => (
               <div key={video.id} className="video-card overflow-hidden cursor-pointer group">
                 <div className="relative aspect-[9/16]">
-                  <img 
+                  <Image
                     src={video.thumbnailUrl} 
                     alt={video.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
                   <div className="absolute bottom-2 left-2 right-2">

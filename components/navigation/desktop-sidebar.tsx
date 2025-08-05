@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { Home, Search, Wallet, User, Settings, Shield, BarChart3, LogOut } from 'lucide-react';
 import { useAuth } from '@/components/providers';
 import Link from 'next/link';
@@ -87,7 +88,7 @@ export function DesktopSidebar() {
       <div className="p-4 border-t border-purple-500/20">
         <div className="flex items-center gap-3 mb-4">
           <Avatar className="w-10 h-10">
-            <img src={user.avatar} alt={user.username} />
+            <Image src={user.avatar} alt={user.username} width={40} height={40} />
           </Avatar>
           <div className="flex-1 min-w-0">
             <p className="font-medium truncate">{user.username}</p>

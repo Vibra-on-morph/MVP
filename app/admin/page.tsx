@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { BarChart3, Users, DollarSign, Shield, TrendingUp, AlertTriangle, Settings, Database } from 'lucide-react';
 import { useAuth } from '@/components/providers';
 import { Card } from '@/components/ui/card';
@@ -176,10 +177,12 @@ export default function AdminPage() {
                 {mockUsers.map((user) => (
                   <div key={user.id} className="flex items-center justify-between p-4 bg-secondary/50 rounded-lg">
                     <div className="flex items-center gap-3">
-                      <img 
+                      <Image
                         src={user.avatar} 
                         alt={user.username}
-                        className="w-12 h-12 rounded-full"
+                        width={48}
+                        height={48}
+                        className="rounded-full"
                       />
                       <div>
                         <div className="flex items-center gap-2">

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Search, TrendingUp, Hash, Siren as Fire, Clock, Heart } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
@@ -100,19 +101,22 @@ export default function DiscoverPage() {
           {filteredVideos.map((video) => (
             <Card key={video.id} className="video-card overflow-hidden cursor-pointer group">
               <div className="relative aspect-[9/16]">
-                <img 
+                <Image
                   src={video.thumbnailUrl} 
                   alt={video.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
                 
                 {/* Creator Info */}
                 <div className="absolute top-4 left-4 flex items-center gap-2">
-                  <img 
+                  <Image
                     src={video.avatar} 
                     alt={video.username}
-                    className="w-8 h-8 rounded-full border-2 border-white"
+                    width={32}
+                    height={32}
+                    className="rounded-full border-2 border-white"
                   />
                   <span className="text-white text-sm font-medium">
                     {video.username}
